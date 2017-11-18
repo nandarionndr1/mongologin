@@ -1,0 +1,72 @@
+{% include 'homes/base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+
+    <style>
+        body{
+            background: #edf1f7;
+        }
+        .card-block{
+            padding: 20px
+        }
+
+    </style>
+
+</head>
+<body>
+    <div class="row">
+        <div class="col-md-2" ></div>
+{% load staticfiles %}
+        <div class="col-md-8" style="margin-top: 30px">
+            <div class="card-deck">
+  <div class="card">
+    <img class="card-img-top" src="..." style="width: 100%; height: 180px" alt="Card image cap">
+    <div class="card-block">
+      <h4 class="card-title">Card title</h4>
+      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted">Last updated 3 mins ago</small>
+    </div>
+  </div>
+  <div class="card">
+    <img class="card-img-top" style="width: 100%; height: 180px" src="..." alt="Card image cap">
+    <div class="card-block" style="padding: 10px;">
+      <h4 class="card-title">Card title</h4>
+      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted">Last updated 3 mins ago</small>
+    </div>
+  </div>
+  <div class="card">
+    <img class="card-img-top" style="width: 100%; height: 180px" src="{% static "ace.jpg" %}" alt="Card image cap">
+    <div class="card-block">
+      <h4 class="card-title">Card title</h4>
+      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted">Last updated 3 mins ago</small>
+    </div>
+  </div>
+</div>
+            <div class="card text-center" style="padding: 0px; margin-top: 10px;  margin-bottom: 10px">
+               <img class="card-img-top" src="{% static "ace.jpg" %}" style="width: 100%; height: 180px" alt="Card image cap">
+              <div class="card-block" style="padding: 10px">
+                <h4 class="card-title">{{ userz.name }}</h4>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+              <div class="card-footer text-muted" >
+                2 days ago
+              </div>
+            </div>
+        </div>
+
+        <div class="col-md-2" ></div>
+    </div>
+</body>
+</html>

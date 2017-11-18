@@ -1,0 +1,107 @@
+
+<html>
+<body>
+
+{% load staticfiles %}
+{% load polymerdep %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="{% static '/materialdjango/components/bower_components/webcomponentsjs/webcomponents-lite.js' %}"></script>
+
+{{ "webcomponentsjs/webcomponents-lite.js" | dep }}
+  {{ "polymer/polymer.html"| dep }}
+  {{ "paper-input/paper-input.html" | dep }}
+  {{ "iron-icons/iron-icons.html" | dep }}
+  {{ "iron-icons/communication-icons.html" | dep }}
+  {{ "iron-icons/social-icons.html" | dep }}
+
+  {{ "iron-icons/editor-icons.html" | dep }}
+  {{ "paper-button/paper-button.html" | dep }}
+
+<style>
+  paper-input {
+    width: 85%;
+  }
+  iron-icon, div[suffix] {
+    color: hsl(0, 0%, 50%);
+    margin-right: 12px;
+  }
+</style>
+
+<div class="container">
+        <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+            <div class="panel panel-info" >
+                    <div class="panel-heading">
+                        <div class="panel-title"><b style="color: #22441e;">MONGOLOGIN! <span class="glyphicon glyphicon-comment" aria-hidden="true"></span></b></div>
+
+                    </div>
+                    <div style="padding-top:30px" class="panel-body" >
+
+                        <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
+
+
+                        <hr>
+
+                        <form action="{% url 'signup' %}" class="form-horizontal" role="form" method = "post">
+                            {% csrf_token %}
+
+                            <center><h2>SIGN - UP <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> </h2></center>
+                            <div style="margin-bottom: 15px;" >
+                                <iron-icon icon="account-box" slot="prefix" ></iron-icon>
+                                <paper-input label="Full Name" name="name" style="display: inline-block;">
+                                </paper-input>
+                            </div>
+
+                            <div style="margin-bottom: 15px" >
+                                 <iron-icon icon="mail" slot="prefix"></iron-icon>
+                                 <paper-input label="Email" name="email" style="display: inline-block;"></paper-input>
+                            </div>
+                        <div style="margin-bottom: 15px" >
+                            <iron-icon icon="editor:format-quote" slot="prefix"></iron-icon>
+                            <paper-input label="Short BIO" name="bio" style="display: inline-block;"></paper-input>
+                        </div>
+                        <div style="margin-bottom: 15px">
+                            <iron-icon icon="social:public" slot="prefix"></iron-icon>
+                            <paper-input label="Github URL" name="githuburl" style="display: inline-block;"></paper-input>
+                            </div>
+                        <hr>
+                        <center><h4>User Credentials <iron-icon icon="assignment-ind"></iron-icon></h4></center>
+                        <div style="margin-bottom: 15px">
+                             <iron-icon icon="account-circle" slot="prefix"></iron-icon>
+                             <paper-input label="Username" name="usrnm" style="display: inline-block;"></paper-input>
+                         </div>
+                        <div style="margin-bottom: 25px">
+                             <iron-icon icon="communication:vpn-key" slot="prefix"></iron-icon>
+                             <paper-input label="Password" type="password" name="pss" style="display: inline-block;"></paper-input>
+                        </div>
+                                <div style="margin-top:10px" class="form-group">
+                                    <!-- Button -->
+
+                                    <div class="col-sm-12 controls">
+                                      <button type= "submit" id="btn-login" name="submit"  class="btn btn-success">Login  </button>
+                                        {% if check == True %}
+                                        <h1><b> inputs incorrect.</b></h1>
+                                        {% endif %}
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <div class="col-md-12 control">
+                                        <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%" >
+                                            Don't have an account?
+                                            {% csrf_token %}
+                                        <a href="#"> Sign Up Here! </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+
+
+                        </div>
+                    </div>
+        </div>
+    </div>
+</body>
+</html>
